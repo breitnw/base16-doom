@@ -96,15 +96,15 @@ determine the exact padding."
        (selection      dark-blue)
        (builtin        magenta)
        (comments       (if doom-base16-brighter-comments dark-cyan base5))
-       (doc-comments   (doom-lighten (if doom-base16-brighter-comments dark-cyan base5) 0.25))
+       (doc-comments   (if doom-base16-brighter-comments dark-cyan base6))
        (constants      yellow)
        (functions      blue)
        (keywords       magenta)
-       (methods        cyan)
+       (methods        blue)
        (operators      blue)
        (type           orange)
        (strings        green)
-       (variables      (doom-lighten magenta 0.2))
+       (variables      (doom-lighten red 0.2))
        (numbers        yellow)
        (region         `(,(doom-lighten (car bg-alt) 0.15) ,@(doom-lighten (cdr base1) 0.35)))
        (error          red)
@@ -141,7 +141,7 @@ determine the exact padding."
 
        (evil-goggles-default-face :inherit 'region :background (doom-blend region bg 0.5))
 
-       ((line-number &override) :foreground base4)
+       ((line-number &override) :foreground (doom-darken base5 0.2))
        ((line-number-current-line &override) :foreground fg)
 
        (font-lock-comment-face
@@ -234,7 +234,7 @@ determine the exact padding."
      (highlight      blue)
      (vertical-bar   (doom-darken base2 0.1))
      (selection      dark-blue)
-     (builtin        magenta)
+     (builtin        cyan)
      (comments       (if doom-base16-brighter-comments cyan base3))
      (doc-comments   (doom-darken comments 0.15))
      (constants      yellow)
@@ -275,7 +275,8 @@ determine the exact padding."
      (modeline-bg-inactive-l `(,(doom-darken (car bg-alt) 0.05) ,@(cdr base1))))
 
     ;; --- extra faces ------------------------
-    ((centaur-tabs-unselected :background bg-alt :foreground base4)
+    ((cursor :background "#{{base08-hex}}")
+     (centaur-tabs-unselected :background bg-alt :foreground base4)
      (font-lock-comment-face
       :foreground comments
       :background (if doom-base16-comment-bg base0))
@@ -284,7 +285,7 @@ determine the exact padding."
       :foreground doc-comments
       :slant 'italic)
 
-     ((line-number &override) :foreground (doom-lighten base4 0.15))
+     ((line-number &override) :foreground base4)
      ((line-number-current-line &override) :foreground base8)
 
      (doom-modeline-bar :background (if -modeline-bright modeline-bg highlight))
